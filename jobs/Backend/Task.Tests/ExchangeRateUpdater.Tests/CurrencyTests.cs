@@ -27,7 +27,7 @@ public class CurrencyTests
     {
         Assert.Throws<ArgumentException>(() => new Currency(code));
     }
-    
+
     [Theory]
     [InlineData("usd")]
     [InlineData("Usd")]
@@ -35,7 +35,7 @@ public class CurrencyTests
     {
         Assert.Throws<ArgumentException>(() => new Currency(code));
     }
-    
+
     [Theory]
     [InlineData("AB1")]
     [InlineData("AR%")]
