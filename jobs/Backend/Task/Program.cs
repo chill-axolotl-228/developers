@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ExchangeRateUpdater.Cnb;
 
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace ExchangeRateUpdater
 {
     internal static  class Program
