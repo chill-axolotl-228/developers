@@ -1,10 +1,29 @@
-﻿namespace ExchangeRateUpdater
+﻿using System;
+using System.Linq;
+
+namespace ExchangeRateUpdater
 {
     internal sealed class Currency
     {
         internal static readonly Currency Czk = new Currency("CZK");
+        
         public Currency(string code)
         {
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                throw new ArgumentNullException(nameof(code),
+                    "code is null or empty. Provide a valid ISO 4217 currency code.");
+            }
+
+            if (code.Length != 3)
+            {
+                throw new ArgumentException("code must be exactly 3 characters.", nameof(code));
+            }
+
+            if (!code.All(x=>char.IsUpper(x) && char.IsLetter(x)))
+            {
+                throw new ArgumentException("code must be consist of all upper characters", nameof(code));
+            }
             Code = code;
         }
 
