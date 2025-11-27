@@ -28,7 +28,7 @@ namespace ExchangeRateUpdater
             return new ExchangeRate(Currency.Czk, targetCurrency, value);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (ReferenceEquals(this, obj)) return true;
             if (obj is null) return false;
