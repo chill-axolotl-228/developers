@@ -39,6 +39,16 @@ namespace ExchangeRateUpdater.Tests
             var result = await _exchangeRateProvider.GetExchangeRates(currencies);
             Assert.Empty(result);
         }
+        
+        [Fact]
+        public async Task ShouldThrowIfExpectedCurrenciesAreNull()
+        {
+            ArrangeApiRates();
+
+            IEnumerable<Currency> currencies = null!; // whoopsie
+            var result = _exchangeRateProvider.GetExchangeRates(currencies);
+           await Assert.ThrowsAsync<ArgumentNullException>(()=> result);
+        }
 
         private void ArrangeApiRates()
         {
