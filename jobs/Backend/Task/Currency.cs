@@ -6,7 +6,7 @@ namespace ExchangeRateUpdater
     internal sealed class Currency
     {
         internal static readonly Currency Czk = new Currency("CZK");
-        
+
         public Currency(string code)
         {
             if (string.IsNullOrWhiteSpace(code))
@@ -20,7 +20,7 @@ namespace ExchangeRateUpdater
                 throw new ArgumentException("code must be exactly 3 characters.", nameof(code));
             }
 
-            if (!code.All(x=>char.IsUpper(x) && char.IsLetter(x)))
+            if (!code.All(x => char.IsUpper(x) && char.IsLetter(x)))
             {
                 throw new ArgumentException("code must be consist of all upper characters", nameof(code));
             }

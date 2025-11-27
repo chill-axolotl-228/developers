@@ -9,7 +9,7 @@ using ExchangeRateUpdater.Cnb;
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace ExchangeRateUpdater
 {
-    internal static  class Program
+    internal static class Program
     {
         private static IEnumerable<Currency> currencies = new[]
         {

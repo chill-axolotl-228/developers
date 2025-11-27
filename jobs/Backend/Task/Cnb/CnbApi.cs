@@ -10,7 +10,7 @@ namespace ExchangeRateUpdater.Cnb
     {
         Task<IEnumerable<CnbExchangeRate>> GetTodayExchangeRates();
     }
-    
+
     /// <summary>
     ///     Api for Česká národní banka
     ///     <seealso href="https://api.cnb.cz/cnbapi/swagger-ui.html"/> 
