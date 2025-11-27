@@ -9,26 +9,17 @@ namespace ExchangeRateUpdater.Cnb
         [JsonInclude]
         public IEnumerable<CnbExchangeRate> Rates { get; private set; }
     }
-/// <summary>
-///     "validFor": "2019-05-17",
-      // "ordaaaaer": 94,
-      // "country": "Austrálie",
-      // "currency": "dolar",
-      // "amount": 1,
-      // "currencyCode": "AUD",
-      // "rate": 15.858aaa
-/// </summary>
+    
     internal sealed class CnbExchangeRate
     {
         [JsonPropertyName("currencyCode")]
-        [JsonInclude]
-        public string CurrencyCode { get; private set; }
+        public string CurrencyCode { get; init; }
 
-        [JsonPropertyName("currencyCode")]
-        public int Amount { get; set; }
+        [JsonPropertyName("amount")]
+        public int Amount { get; init; }
 
         [JsonPropertyName("rate")]
-        public decimal Rate { get; set; }
+        public decimal Rate { get; init; }
 
         public decimal RealRate => Rate / Amount;
     }

@@ -9,19 +9,23 @@ namespace ExchangeRateUpdater.Cnb
     {
         Task<IEnumerable<CnbExchangeRate>> GetTodayExchangeRates();
     }
-
-    internal sealed class BankApi : IBankApi
+    
+    /// <summary>
+    ///     Api for Česká národní banka
+    ///     <seealso href="https://api.cnb.cz/cnbapi/swagger-ui.html"/> 
+    /// </summary>
+    internal sealed class CnbApi : IBankApi
     {
         private readonly HttpClient _httpClient;
 
-        public BankApi(HttpClient httpClient)
+        public CnbApi(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         public async Task<IEnumerable<CnbExchangeRate>> GetTodayExchangeRates()
         {
-            var exchangeRatesEndpoint = "https://api.cnb.cz/cnbapi/exrates/daily?lang=EN";
+            const string exchangeRatesEndpoint = "https://api.cnb.cz/cnbapi/exrates/daily?lang=EN";
             var response = await _httpClient.GetFromJsonAsync<CnbExchangeRates>(exchangeRatesEndpoint);
             return response.Rates;
         }
